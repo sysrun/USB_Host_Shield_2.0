@@ -20,6 +20,7 @@ void Notify(char const * msg)
 //void Notify(const char* msg)
 {
 	if(!msg) return;
+	/*
 	char c;
 
 	while((c = pgm_read_byte(msg++)))
@@ -27,5 +28,6 @@ void Notify(char const * msg)
   Serial.print(c);
 #else  	
 		Serial.print(c,BYTE);
-#endif		
+#endif	
+*/	
 }

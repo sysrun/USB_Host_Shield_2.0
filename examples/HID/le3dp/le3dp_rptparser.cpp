@@ -25,6 +25,7 @@ void JoystickReportParser::Parse(HID *hid, bool is_rpt_id, uint8_t len, uint8_t 
 
 void JoystickEvents::OnGamePadChanged(const GamePadEventData *evt)
 {
+/*
 	Serial.print("X: ");
 	PrintHex<uint16_t>(evt->x);
 	Serial.print(" Y: ");
@@ -40,4 +41,5 @@ void JoystickEvents::OnGamePadChanged(const GamePadEventData *evt)
 	Serial.print(" Buttons B: ");
 	PrintHex<uint8_t>(evt->buttons_b);
 	Serial.println("");
+	*/
 }

@@ -223,6 +223,7 @@ void SPP::ACLData(uint8_t* l2capinbuf) {
                 rfcommChannelConnection = rfcommChannel;
                 
 #ifdef EXTRADEBUG
+/*
             Notify(PSTR("\r\nRFCOMM Channel: "));
             Serial.print(rfcommChannel>>3,HEX);
             Notify(PSTR(" Direction: "));
@@ -233,11 +234,12 @@ void SPP::ACLData(uint8_t* l2capinbuf) {
             Serial.print(rfcommChannelType,HEX);
             Notify(PSTR(" PF_BIT: "));
             Serial.print(rfcommPfBit,HEX);
+            */
 #endif
             if (rfcommChannelType == RFCOMM_DISC) {
 #ifdef DEBUG
                 Notify(PSTR("\r\nReceived Disconnect RFCOMM Command on channel: "));
-                Serial.print(rfcommChannel>>3,HEX);
+                //Serial.print(rfcommChannel>>3,HEX);
 #endif
                 connected = false;
                 sendRfcomm(rfcommChannel,rfcommDirection,rfcommCommandResponse,RFCOMM_UA,rfcommPfBit,rfcommbuf,0x00); // UA Command
@@ -254,15 +256,16 @@ void SPP::ACLData(uint8_t* l2capinbuf) {
                     }
 #ifdef EXTRADEBUG
                     Notify(PSTR("\r\nRFCOMM Data Available: "));
-                    Serial.print(rfcommAvailable);
+                    //Serial.print(rfcommAvailable);
                     if (offset) {
                         Notify(PSTR(" - Credit: 0x"));
-                        Serial.print(l2capinbuf[11],HEX);
+                        //Serial.print(l2capinbuf[11],HEX);
                     }
 #endif
 #ifdef PRINTREPORT // Uncomment "#define PRINTREPORT" to print the report send to the Arduino via Bluetooth
-                    for(uint8_t i = 0; i < length; i++)
-                        Serial.write(l2capinbuf[i+11+offset]);
+                    for(uint8_t i = 0; i < length; i++){
+                        //Serial.write(l2capinbuf[i+11+offset]);
+                        }
 #endif
                 }
             } else {
@@ -641,7 +644,7 @@ void SPP::sendRfcomm(uint8_t channel, uint8_t direction, uint8_t CR, uint8_t cha
 #ifdef EXTRADEBUG
     Notify(PSTR(" - RFCOMM Data: "));
     for(i = 0; i < length+4; i++) {
-        Serial.print(l2capoutbuf[i],HEX);
+        //Serial.print(l2capoutbuf[i],HEX);
         Notify(PSTR(" "));
     }
 #endif    
@@ -657,7 +660,7 @@ void SPP::sendRfcommCredit(uint8_t channel, uint8_t direction, uint8_t CR, uint8
 #ifdef EXTRADEBUG
     Notify(PSTR(" - RFCOMM Credit Data: "));
     for(uint8_t i = 0; i < 5; i++) {
-        Serial.print(l2capoutbuf[i],HEX);
+        //Serial.print(l2capoutbuf[i],HEX);
         Notify(PSTR(" "));
     }
 #endif
@@ -862,7 +865,7 @@ uint8_t SPP::read() {
         sendRfcommCredit(rfcommChannelConnection,rfcommDirection,0,RFCOMM_UIH,0x10,sizeof(rfcommDataBuffer)); // Send more credit
 #ifdef EXTRADEBUG
         Notify(PSTR("\r\nSent "));
-        Serial.print(sizeof(rfcommDataBuffer));
+        //Serial.print(sizeof(rfcommDataBuffer));
         Notify(PSTR(" more credit"));
 #endif
     }

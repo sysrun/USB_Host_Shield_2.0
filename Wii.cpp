@@ -427,7 +427,7 @@ void WII::ACLData(uint8_t* l2capinbuf) {
 #ifdef DEBUG
                         default:
                             Notify(PSTR("\r\nUnknown Report type: "));
-                            Serial.print(l2capinbuf[9],HEX);
+                            //Serial.print(l2capinbuf[9],HEX);
                             break;
 #endif
                     }                    

@@ -244,7 +244,7 @@ FailUnknownDevice:
 Fail:
 #ifdef DEBUG
     Notify(PSTR("\r\nBTD Init Failed, error code: "));
-    Serial.print(rcode);                     
+    //Serial.print(rcode);                     
 #endif    
     Release();
     return rcode;
@@ -371,7 +371,7 @@ void BTD::HCI_event_task() {
                 if (hcibuf[2]) { // Check that there is more than zero responses
 #ifdef EXTRADEBUG
                     Notify(PSTR("\r\nNumber of responses: "));
-                    Serial.print(hcibuf[2]);
+                    //Serial.print(hcibuf[2]);
 #endif
                     for(uint8_t i = 0; i < hcibuf[2]; i++) {
                         if((hcibuf[4+8*hcibuf[2]+3*i] == 0x04 && hcibuf[5+8*hcibuf[2]+3*i] == 0x25 && hcibuf[6+8*hcibuf[2]+3*i] == 0x00) || (hcibuf[4+8*hcibuf[2]+3*i] == 0x08 && hcibuf[5+8*hcibuf[2]+3*i] == 0x05 && hcibuf[6+8*hcibuf[2]+3*i] == 0x00)) { // See http://bluetooth-pentest.narod.ru/software/bluetooth_class_of_device-service_generator.html and http://wiibrew.org/wiki/Wiimote#SDP_information
@@ -446,7 +446,7 @@ void BTD::HCI_event_task() {
                 else if(btdPin != NULL) {
 #ifdef DEBUG
                     Notify(PSTR("\r\nBluetooth pin is set too: "));
-                    Serial.print(btdPin);
+                    //Serial.print(btdPin);
 #endif
                     hci_pin_code_request_reply();
                 }
@@ -568,7 +568,7 @@ void BTD::HCI_task() {
             if (hci_cmd_complete) {
 #ifdef DEBUG               
                 Notify(PSTR("\r\nThe name is set to: "));
-                Serial.print(btdName);
+                //Serial.print(btdName);
 #endif
                 hci_state = HCI_CHECK_WII_SERVICE;
             }
@@ -656,7 +656,7 @@ void BTD::HCI_task() {
                 for (uint8_t i = 0; i < 30; i++) {
                     if(remote_name[i] == NULL)
                         break;
-                    Serial.write(remote_name[i]);   
+                    //Serial.write(remote_name[i]);   
                 }             
 #endif
                 hci_accept_connection();
@@ -990,9 +990,9 @@ void BTD::L2CAP_Command(uint16_t handle, uint8_t* data, uint8_t nbytes, uint8_t 
         Notify(PSTR("\r\nError sending L2CAP message: 0x"));
         PrintHex<uint8_t>(rcode);
         Notify(PSTR(" - Channel ID: "));
-        Serial.print(channelHigh);
+        //Serial.print(channelHigh);
         Notify(PSTR(" "));
-        Serial.print(channelLow);
+        //Serial.print(channelLow);
 #endif        
     }
 }

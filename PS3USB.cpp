@@ -259,7 +259,7 @@ FailUnknownDevice:
 Fail:
 #ifdef DEBUG
     Notify(PSTR("\r\nPS3 Init Failed, error code: "));
-    Serial.print(rcode,HEX);
+    //Serial.print(rcode,HEX);
 #endif    
     Release();
     return rcode;
@@ -319,9 +319,9 @@ void PS3USB::printReport() { //Uncomment "#define PRINTREPORT" to print the repo
         return;
     for(uint8_t i = 0; i < PS3_REPORT_BUFFER_SIZE;i++) {
         PrintHex<uint8_t>(readBuf[i]);
-        Serial.print(" ");
+        //Serial.print(" ");
     }             
-    Serial.println();
+    //Serial.println();
 }
 
 bool PS3USB::getButtonPress(Button b) {
@@ -479,7 +479,7 @@ void PS3USB::setBdaddr(uint8_t* BDADDR) {
     Notify(PSTR("\r\nBluetooth Address was set to: "));
     for(int8_t i = 5; i > 0; i--) {
         PrintHex<uint8_t>(my_bdaddr[i]);
-        Serial.print(":");
+        //Serial.print(":");
     }
     PrintHex<uint8_t>(my_bdaddr[0]);
 #endif
@@ -540,7 +540,7 @@ void PS3USB::setMoveBdaddr(uint8_t* BDADDR) {
     Notify(PSTR("\r\nBluetooth Address was set to: "));
     for(int8_t i = 5; i > 0; i--) {
         PrintHex<uint8_t>(my_bdaddr[i]);
-        Serial.print(":");
+        //Serial.print(":");
     }
     PrintHex<uint8_t>(my_bdaddr[0]); 
 #endif

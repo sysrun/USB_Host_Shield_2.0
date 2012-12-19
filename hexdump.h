@@ -41,15 +41,15 @@ void HexDumper<BASE_CLASS, LEN_TYPE, OFFSET_TYPE>::Parse(const LEN_TYPE len, con
 	{
         	if (!byteCount)
         	{
-			PrintHex<OFFSET_TYPE>(byteTotal);
-            		Serial.print(": ");
+			//PrintHex<OFFSET_TYPE>(byteTotal);
+            //		Serial.print(": ");
         	}
-		PrintHex<uint8_t>(pbuf[j]);
-		Serial.print(" ");
+		//PrintHex<uint8_t>(pbuf[j]);
+		//Serial.print(" ");
 
 		if (byteCount == 15)
 		{
-			Serial.println("");
+			//Serial.println("");
 			byteCount = 0xFF;
 		}
 	}

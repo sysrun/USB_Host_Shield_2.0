@@ -71,7 +71,7 @@ uint8_t ADK::Init(uint8_t parent, uint8_t port, bool lowspeed)
   // get memory address of USB device address pool
 	AddressPool	&addrPool = pUsb->GetAddressPool();
 
-	USBTRACE("\r\nADK Init");
+	//USBTRACE("\r\nADK Init");
 	
     // check if address has already been assigned to an instance
     if (bAddress) {

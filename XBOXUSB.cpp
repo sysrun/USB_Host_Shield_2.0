@@ -212,7 +212,7 @@ FailUnknownDevice:
 Fail:
 #ifdef DEBUG
     Notify(PSTR("\r\nXbox 360 Init Failed, error code: "));
-    Serial.print(rcode,HEX);
+    //Serial.print(rcode,HEX);
 #endif    
     Release();
     return rcode;
@@ -273,9 +273,9 @@ void XBOXUSB::printReport() { //Uncomment "#define PRINTREPORT" to print the rep
         return;
     for(uint8_t i = 0; i < XBOX_REPORT_BUFFER_SIZE;i++) {
         PrintHex<uint8_t>(readBuf[i]);
-        Serial.print(" ");
+        //Serial.print(" ");
     }             
-    Serial.println("");
+    //Serial.println("");
 }
 
 uint8_t XBOXUSB::getButton(Button b) {

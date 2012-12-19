@@ -63,8 +63,10 @@ typedef MAX3421e<P48, P49>		MAX3421E;		// Official Arduinos (UNO, Duemilanove, M
 #endif
 
 //Debug macros. In 1.0 it is possible to move strings to PROGMEM by defining USBTRACE (Serial.print(F(s)))
-#define USBTRACE(s) (Serial.print((s)))
-#define USBTRACE2(s,r) (Serial.print((s)), Serial.println((r),HEX))
+//#define USBTRACE(s) (Serial.print((s)))
+//#define USBTRACE2(s,r) (Serial.print((s)), Serial.println((r),HEX))
+#define USBTRACE(s) 
+#define USBTRACE2(s,r) 
 
 
 

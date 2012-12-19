@@ -1331,14 +1331,14 @@ void ReportDescParserBase::PrintButtonPageUsage(uint16_t usage)
 {
 	Notify(pstrSpace);
 	Notify(PSTR("Btn"));
-	Serial.print(usage, HEX);
+	//Serial.print(usage, HEX);
 }
 
 void ReportDescParserBase::PrintOrdinalPageUsage(uint16_t usage)
 {
 	Notify(pstrSpace);
 	Notify(PSTR("Inst"));
-	Serial.print(usage, DEC);
+	//Serial.print(usage, DEC);
 }
 
 void ReportDescParserBase::PrintGenericDesktopPageUsage(uint16_t usage)
@@ -1699,7 +1699,7 @@ void ReportDescParser2::OnInputItem(uint8_t itm)
 		}
 		PrintByteValue(result.dwResult);
 	}
-	Serial.println("");
+	//Serial.println("");
 }
 
 void UniversalReportParser::Parse(HID *hid, bool is_rpt_id, uint8_t len, uint8_t *buf)

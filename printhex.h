@@ -30,12 +30,12 @@ void PrintHex(T val)
     
     while (mask > 1)
     {
-		if (val < mask)
-		  Serial.print("0");
-
+		if (val < mask){
+		  //Serial.print("0");
+        }
 		mask >>= 4;
     }
-    Serial.print((T)val, HEX);
+    //Serial.print((T)val, HEX);
 }
 
 template <class T> 
@@ -55,12 +55,13 @@ void PrintHex2(Print *prn, T val)
 
 template <class T> 
 void PrintBin(T val)
-{
+{/*
 	for (T mask = (((T)1) << (sizeof(T) << 3)-1); mask; mask>>=1)
 		if (val & mask)
-			Serial.print("1");
+			//Serial.print("1");
 		else
-			Serial.print("0");
+			//Serial.print("0");
+			*/
 }
 
 #endif // __PRINTHEX_H__

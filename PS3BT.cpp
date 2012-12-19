@@ -254,7 +254,7 @@ void PS3BT::ACLData(uint8_t* ACLData) {
 #ifdef DEBUG
                 if(pBtd->hci_version < 3) { // Check the HCI Version of the Bluetooth dongle
                     Notify(PSTR("\r\nYour dongle may not support reading the analog buttons, sensors and status\r\nYour HCI Version is: "));
-                    Serial.print(pBtd->hci_version);
+                    //Serial.print(pBtd->hci_version);
                     Notify(PSTR("\r\nBut should be at least 3\r\nThis means that it doesn't support Bluetooth Version 2.0+EDR"));
                 }
 #endif                
@@ -267,6 +267,7 @@ void PS3BT::ACLData(uint8_t* ACLData) {
         if ((l2capinbuf[6] | (l2capinbuf[7] << 8)) == 0x0001) { //l2cap_control - Channel ID for ACL-U
             if (l2capinbuf[8] == L2CAP_CMD_COMMAND_REJECT) {
 #ifdef DEBUG
+/*
                     Notify(PSTR("\r\nL2CAP Command Rejected - Reason: "));
                     PrintHex<uint8_t>(l2capinbuf[13]);
                     Serial.print(" ");
@@ -279,10 +280,12 @@ void PS3BT::ACLData(uint8_t* ACLData) {
                     PrintHex<uint8_t>(l2capinbuf[15]);
                     Serial.print(" ");
                     PrintHex<uint8_t>(l2capinbuf[14]);     
+                    */
 #endif
                 }
                 else if (l2capinbuf[8] == L2CAP_CMD_CONNECTION_REQUEST) {                    
 #ifdef EXTRADEBUG
+/*
                     Notify(PSTR("\r\nL2CAP Connection Request - PSM: "));
                     PrintHex<uint8_t>(l2capinbuf[13]);
                     Notify(PSTR(" "));
@@ -293,6 +296,7 @@ void PS3BT::ACLData(uint8_t* ACLData) {
                     PrintHex<uint8_t>(l2capinbuf[14]);
                     Notify(PSTR(" Identifier: "));
                     PrintHex<uint8_t>(l2capinbuf[9]);
+                    */
 #endif
                     if ((l2capinbuf[12] | (l2capinbuf[13] << 8)) == HID_CTRL_PSM) {                    
                         identifier = l2capinbuf[9];
@@ -388,9 +392,9 @@ void PS3BT::ACLData(uint8_t* ACLData) {
 #ifdef PRINTREPORT // Uncomment "#define PRINTREPORT" to print the report send by the PS3 Controllers
                     for(uint8_t i = 10; i < 58;i++) {
                         PrintHex<uint8_t>(l2capinbuf[i]);
-                        Serial.print(" ");
+                        //Serial.print(" ");
                     }
-                    Serial.println();
+                    //Serial.println();
 #endif
                 }
             }

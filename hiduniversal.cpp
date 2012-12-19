@@ -271,7 +271,7 @@ FailGetReportDescr:
 	goto Fail;
 
 Fail:
-	Serial.println(rcode, HEX);
+	//Serial.println(rcode, HEX);
 	Release();
 	return rcode;
 }
@@ -401,12 +401,12 @@ uint8_t HIDUniversal::Poll()
 			if (identical)
 				return 0;
 
-			Serial.print("\r\nBuf: ");
+			//Serial.print("\r\nBuf: ");
 
-			for (uint8_t i=0; i<read; i++)
-				PrintHex<uint8_t>(buf[i]);
+			//for (uint8_t i=0; i<read; i++)
+			//	PrintHex<uint8_t>(buf[i]);
 
-			Serial.println("");
+			//Serial.println("");
 
 			HIDReportParser		*prs = GetReportParser( ((bHasReportId) ? *buf : 0) );
 

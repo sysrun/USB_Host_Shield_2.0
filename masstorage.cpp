@@ -256,7 +256,7 @@ FailInquiry:
 	goto Fail;
 
 Fail:
-	Serial.println(rcode, HEX);
+	//Serial.println(rcode, HEX);
 	Release();
 	return rcode;
 }

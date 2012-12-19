@@ -369,9 +369,10 @@ void PrintHubPortStatus(USBHub *hubptr, uint8_t addr, uint8_t port, bool print_c
 
 	if (rcode)
 	{
-		Serial.println("ERROR!");
+		//Serial.println("ERROR!");
 		return;
 	}
+	/*
 	Serial.print("\r\nPort ");
 	Serial.println(port, DEC);
 
@@ -396,10 +397,10 @@ void PrintHubPortStatus(USBHub *hubptr, uint8_t addr, uint8_t port, bool print_c
 	Serial.println((evt.bmStatus & bmHUB_PORT_STATUS_PORT_TEST) > 0, DEC);	
 	Serial.print("INDICATOR:\t");
 	Serial.println((evt.bmStatus & bmHUB_PORT_STATUS_PORT_INDICATOR) > 0, DEC);
-
+    */
 	if (!print_changes)
 		return;
-
+    /*
 	Serial.println("\nChange");
 	Serial.print("CONNECTION:\t");
 	Serial.println((evt.bmChange & bmHUB_PORT_STATUS_C_PORT_CONNECTION) > 0, DEC);
@@ -411,4 +412,5 @@ void PrintHubPortStatus(USBHub *hubptr, uint8_t addr, uint8_t port, bool print_c
 	Serial.println((evt.bmChange & bmHUB_PORT_STATUS_C_PORT_OVER_CURRENT) > 0, DEC);	
 	Serial.print("RESET:\t\t");
 	Serial.println((evt.bmChange & bmHUB_PORT_STATUS_C_PORT_RESET) > 0, DEC);
+	*/
 }
